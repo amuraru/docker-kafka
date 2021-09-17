@@ -2,7 +2,7 @@
 
 `amuraru/kafka` docker image build configuration.
 
-A new `kafka-*` tag created in this repo triggers the image build and push to [ghcr.io/amuraru/kafka](https://github.com/amuraru/docker-kafka/pkgs/container/kafka) github docker registry.
+A new tag created in this repo triggers the image build and push to [ghcr.io/amuraru/kafka](https://github.com/amuraru/docker-kafka/pkgs/container/kafka) github docker registry.
 
 Tags should be `<scala_version>-<kafka_version>` e.g `2.13-2.8.1`
 
