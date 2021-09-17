@@ -1,6 +1,13 @@
-# About
+# Kafka docker image
 
-This docker image is extending [klakegg/docker-hugo](https://github.com/klakegg/docker-hugo) and installs `golang` and `git`
-to enable hugo modules. 
+`amuraru/kafka` docker image build configuration.
 
-  Images are published to github docker registry `ghcr.io` at: https://github.com/amuraru/hugo-git-golang/pkgs/container/hugo
+A new `kafka-*` tag created in this repo triggers the image build and push to [ghcr.io/amuraru/kafka](https://github.com/amuraru/docker-kafka/pkgs/container/kafka) github docker registry.
+
+Tags should be `<scala_version>-<kafka_version>` e.g `2.13-2.8.1`
+
+# Upstream base
+
+This is based on [wurstmeister/kafka-docker](https://github.com/wurstmeister/kafka-docker) with the following additions:
+1. Use `openjdk 17` in order to support container based resource monitoring
+2. Use custom `log4j.properties` to get all kafka logs to stdout only
