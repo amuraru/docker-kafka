@@ -22,7 +22,7 @@ RUN tar -xzf $kafka_distro
 RUN rm -r kafka_$scala_version-$kafka_version/bin/windows
 
 
-FROM openjdk:17-jdk-slim
+FROM ghcr.io/amuraru/amazoncorretto:17.0.0-debian
 
 ARG scala_version=2.13
 ARG kafka_version=2.8.1
