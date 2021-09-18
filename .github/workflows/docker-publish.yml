@@ -46,9 +46,18 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      # Build and push Docker image with Buildx (don't push on PR)
+      # Build and push AWS Corretto JDK Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
-      - name: Build and push Docker image
+      - name: Build and push Corretto JDK Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: jdk
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: amuraru/amazoncorretto:17.0.0-debian
+          labels: ${{ steps.meta.outputs.labels }}
+      # Build and push kafka Docker image with Buildx (don't push on PR)
+      # https://github.com/docker/build-push-action
+      - name: Build and push Kafka Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
